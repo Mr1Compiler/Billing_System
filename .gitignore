@@ -1,0 +1,8 @@
+# Rider / IntelliJ
+.idea/
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
