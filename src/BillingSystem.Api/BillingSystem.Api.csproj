@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BillingSystem.Application\BillingSystem.Application.csproj" />
+    <ProjectReference Include="..\BillingSystem.Shared\BillingSystem.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

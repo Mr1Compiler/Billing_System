@@ -1,5 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\BillingSystem.Shared\BillingSystem.Shared.csproj" />
+    <ProjectReference Include="..\BillingSystem.Domain\BillingSystem.Domain.csproj" />
+    <ProjectReference Include="..\BillingSystem.Infrastructure\BillingSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

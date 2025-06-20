@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+484un8F/0o=",
+  "dgSpecHash": "FTLKbWAwCs0=",
   "success": true,
-  "projectFilePath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+  "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

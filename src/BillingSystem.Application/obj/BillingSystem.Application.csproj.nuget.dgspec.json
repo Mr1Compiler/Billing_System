@@ -1,17 +1,82 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/BillingSystem.Application.csproj": {}
+    "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj": {}
   },
   "projects": {
-    "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/BillingSystem.Application.csproj": {
+    "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/BillingSystem.Application.csproj",
+        "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj",
         "projectName": "BillingSystem.Application",
-        "projectPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/BillingSystem.Application.csproj",
+        "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj",
         "packagesPath": "/home/mr1compiler/.nuget/packages/",
-        "outputPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/obj/",
+        "outputPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+                "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj"
+              },
+              "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+                "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj",
+        "projectName": "BillingSystem.Domain",
+        "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj",
+        "packagesPath": "/home/mr1compiler/.nuget/packages/",
+        "outputPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
@@ -58,7 +123,65 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.409/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj",
+        "projectName": "BillingSystem.Shared",
+        "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj",
+        "packagesPath": "/home/mr1compiler/.nuget/packages/",
+        "outputPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

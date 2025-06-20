@@ -107,6 +107,40 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "BillingSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BillingSystem.Domain": "1.0.0",
+          "BillingSystem.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BillingSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Application.dll": {}
+        }
+      },
+      "BillingSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BillingSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Domain.dll": {}
+        }
+      },
+      "BillingSystem.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BillingSystem.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Shared.dll": {}
+        }
       }
     }
   },
@@ -473,10 +507,27 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "BillingSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Application/BillingSystem.Application.csproj",
+      "msbuildProject": "../BillingSystem.Application/BillingSystem.Application.csproj"
+    },
+    "BillingSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Domain/BillingSystem.Domain.csproj",
+      "msbuildProject": "../BillingSystem.Domain/BillingSystem.Domain.csproj"
+    },
+    "BillingSystem.Shared/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Shared/BillingSystem.Shared.csproj",
+      "msbuildProject": "../BillingSystem.Shared/BillingSystem.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "BillingSystem.Application >= 1.0.0",
+      "BillingSystem.Shared >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -487,11 +538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/extraspace/bill_project/App/src/BillingSystem.Api/BillingSystem.Api.csproj",
+      "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Api/BillingSystem.Api.csproj",
       "projectName": "BillingSystem.Api",
-      "projectPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Api/BillingSystem.Api.csproj",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Api/BillingSystem.Api.csproj",
       "packagesPath": "/home/mr1compiler/.nuget/packages/",
-      "outputPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Api/obj/",
+      "outputPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
@@ -505,7 +556,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj"
+            },
+            "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -551,7 +609,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.409/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

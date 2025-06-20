@@ -1,11 +1,86 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "BillingSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BillingSystem.Domain": "1.0.0",
+          "BillingSystem.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BillingSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Application.dll": {}
+        }
+      },
+      "BillingSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BillingSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Domain.dll": {}
+        }
+      },
+      "BillingSystem.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BillingSystem.Application": "1.0.0",
+          "BillingSystem.Domain": "1.0.0",
+          "BillingSystem.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BillingSystem.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Infrastructure.dll": {}
+        }
+      },
+      "BillingSystem.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BillingSystem.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BillingSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Application/BillingSystem.Application.csproj",
+      "msbuildProject": "../BillingSystem.Application/BillingSystem.Application.csproj"
+    },
+    "BillingSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Domain/BillingSystem.Domain.csproj",
+      "msbuildProject": "../BillingSystem.Domain/BillingSystem.Domain.csproj"
+    },
+    "BillingSystem.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
+      "msbuildProject": "../BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj"
+    },
+    "BillingSystem.Shared/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Shared/BillingSystem.Shared.csproj",
+      "msbuildProject": "../BillingSystem.Shared/BillingSystem.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "BillingSystem.Domain >= 1.0.0",
+      "BillingSystem.Infrastructure >= 1.0.0",
+      "BillingSystem.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/mr1compiler/.nuget/packages/": {}
@@ -13,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/extraspace/bill_project/App/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
       "projectName": "BillingSystem.Persistence",
-      "projectPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
       "packagesPath": "/home/mr1compiler/.nuget/packages/",
-      "outputPath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Persistence/obj/",
+      "outputPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Persistence/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
@@ -31,7 +106,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/BillingSystem.Domain.csproj"
+            },
+            "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj"
+            },
+            "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Shared/BillingSystem.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -64,7 +149,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.409/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

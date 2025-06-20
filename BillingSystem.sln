@@ -3,6 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A06E162-DC19-420F-A425-6F0AB35676A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Api", "src\BillingSystem.Api\BillingSystem.Api.csproj", "{9CF7E824-8DDD-4333-AC04-DE6F51E48856}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Application", "src\BillingSystem.Application\BillingSystem.Application.csproj", "{BB514A18-95A9-4328-AE36-1E2D6787AB55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Domain", "src\BillingSystem.Domain\BillingSystem.Domain.csproj", "{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Persistence", "src\BillingSystem.Persistence\BillingSystem.Persistence.csproj", "{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Infrastructure", "src\BillingSystem.Infrastructure\BillingSystem.Infrastructure.csproj", "{2F09FB97-923D-405F-ADAF-38ECCF7886A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Shared", "src\BillingSystem.Shared\BillingSystem.Shared.csproj", "{202A2546-5C92-4F22-8286-DA0D62AB8A04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +24,39 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CF7E824-8DDD-4333-AC04-DE6F51E48856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF7E824-8DDD-4333-AC04-DE6F51E48856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF7E824-8DDD-4333-AC04-DE6F51E48856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF7E824-8DDD-4333-AC04-DE6F51E48856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB514A18-95A9-4328-AE36-1E2D6787AB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB514A18-95A9-4328-AE36-1E2D6787AB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB514A18-95A9-4328-AE36-1E2D6787AB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB514A18-95A9-4328-AE36-1E2D6787AB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F09FB97-923D-405F-ADAF-38ECCF7886A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F09FB97-923D-405F-ADAF-38ECCF7886A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F09FB97-923D-405F-ADAF-38ECCF7886A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F09FB97-923D-405F-ADAF-38ECCF7886A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202A2546-5C92-4F22-8286-DA0D62AB8A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202A2546-5C92-4F22-8286-DA0D62AB8A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202A2546-5C92-4F22-8286-DA0D62AB8A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202A2546-5C92-4F22-8286-DA0D62AB8A04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CF7E824-8DDD-4333-AC04-DE6F51E48856} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
+		{BB514A18-95A9-4328-AE36-1E2D6787AB55} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
+		{4D668815-CEE7-4E7E-A519-7C8ECF16DE9A} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
+		{1E8A4EE1-3E1E-452A-9AFF-93FE0942C90C} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
+		{2F09FB97-923D-405F-ADAF-38ECCF7886A0} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
+		{202A2546-5C92-4F22-8286-DA0D62AB8A04} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
 	EndGlobalSection
 EndGlobal

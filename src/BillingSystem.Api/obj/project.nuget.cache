@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Dgb3P54UUf0=",
+  "dgSpecHash": "Um4Bnlx53oI=",
   "success": true,
-  "projectFilePath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Api/BillingSystem.Api.csproj",
+  "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Api/BillingSystem.Api.csproj",
   "expectedPackageFiles": [
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.openapi/8.0.16/microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

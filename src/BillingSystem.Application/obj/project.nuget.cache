@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cxeZgsWGiG8=",
+  "dgSpecHash": "gQVf9jhXJ0o=",
   "success": true,
-  "projectFilePath": "/mnt/extraspace/bill_project/App/src/BillingSystem.Application/BillingSystem.Application.csproj",
+  "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/BillingSystem.Application/BillingSystem.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
