@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Api", "src\Presentation\BillingSystem.Api\BillingSystem.Api.csproj", "{058F94FF-44E0-498C-9BD3-1F47E59A3E4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground.csproj", "{0D21C5C6-C74D-4D17-934D-685F8ADDAD79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{058F94FF-44E0-498C-9BD3-1F47E59A3E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058F94FF-44E0-498C-9BD3-1F47E59A3E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058F94FF-44E0-498C-9BD3-1F47E59A3E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D21C5C6-C74D-4D17-934D-685F8ADDAD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D21C5C6-C74D-4D17-934D-685F8ADDAD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D21C5C6-C74D-4D17-934D-685F8ADDAD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D21C5C6-C74D-4D17-934D-685F8ADDAD79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FB1CDECE-B909-4769-B1EC-F7AA3E56ABC6} = {0A06E162-DC19-420F-A425-6F0AB35676A3}
