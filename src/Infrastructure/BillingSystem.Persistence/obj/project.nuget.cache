@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "dgSpecHash": "4ZB/YKCFQcU=",
+  "success": false,
+  "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "filePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "filePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Application/BillingSystem.Application.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "filePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Application/BillingSystem.Application.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

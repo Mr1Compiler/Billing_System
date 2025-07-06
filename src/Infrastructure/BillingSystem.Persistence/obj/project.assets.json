@@ -1,0 +1,136 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "BillingSystem.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Application/BillingSystem.Application.csproj": "1.0.0",
+          "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj": "1.0.0",
+          "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BillingSystem.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BillingSystem.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BillingSystem.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
+      "msbuildProject": "../BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj",
+      "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj",
+      "BillingSystem.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/mr1compiler/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "projectName": "BillingSystem.Persistence",
+      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
+      "packagesPath": "/home/mr1compiler/.nuget/packages/",
+      "outputPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj"
+            },
+            "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj"
+            },
+            "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+              "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Shared/BillingSystem.Shared.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Domain/BillingSystem.Domain.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project '/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Application/BillingSystem.Application.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Application/BillingSystem.Application.csproj",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

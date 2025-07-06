@@ -1,0 +1,13 @@
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/bin/Debug/net8.0/BillingSystem.Domain.deps.json
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/bin/Debug/net8.0/BillingSystem.Domain.dll
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/bin/Debug/net8.0/BillingSystem.Domain.pdb
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.AssemblyInfoInputs.cache
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.AssemblyInfo.cs
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.csproj.CoreCompileInputs.cache
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.sourcelink.json
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.dll
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/refint/BillingSystem.Domain.dll
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.pdb
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/ref/BillingSystem.Domain.dll
+/mnt/hdd/bill_project/billing_system/src/BillingSystem.Domain/obj/Debug/net8.0/BillingSystem.Domain.csproj.AssemblyReference.cache
