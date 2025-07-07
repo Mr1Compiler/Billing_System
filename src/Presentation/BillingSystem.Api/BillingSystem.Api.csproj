@@ -12,8 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BillingSystem.Application\BillingSystem.Application.csproj" />
-    <ProjectReference Include="..\BillingSystem.Shared\BillingSystem.Shared.csproj" />
+    <ProjectReference Include="..\..\Core\BillingSystem.Application\BillingSystem.Application.csproj" />
+    <ProjectReference Include="..\..\Core\BillingSystem.Shared\BillingSystem.Shared.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\BillingSystem.Infrastructure\BillingSystem.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\BillingSystem.Persistence\BillingSystem.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
