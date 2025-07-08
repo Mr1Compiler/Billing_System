@@ -1032,6 +1032,7 @@
           "BillingSystem.Domain": "1.0.0",
           "BillingSystem.Infrastructure": "1.0.0",
           "BillingSystem.Shared": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.17",
           "Microsoft.EntityFrameworkCore": "9.0.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
         },
