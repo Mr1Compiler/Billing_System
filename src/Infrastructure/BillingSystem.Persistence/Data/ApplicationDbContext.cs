@@ -16,7 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(
-            "Host=localhost;Port=5432;Database=billingsystem;Username=postgres;Password=abcSql_00;");
+            "Host=localhost;Port=5432;Database=BillingSystem;Username=postgres;Password=abcSql_00;");
     }
     
     public DbSet<Customer> Customers { get; set; }
