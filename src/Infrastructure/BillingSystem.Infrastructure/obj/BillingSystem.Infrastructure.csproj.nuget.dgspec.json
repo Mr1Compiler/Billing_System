@@ -296,9 +296,6 @@
               },
               "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj": {
                 "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj"
-              },
-              "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj": {
-                "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj"
               }
             }
           }

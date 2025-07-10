@@ -17,7 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\BillingSystem.Domain\BillingSystem.Domain.csproj" />
     <ProjectReference Include="..\..\Core\BillingSystem.Shared\BillingSystem.Shared.csproj" />
-    <ProjectReference Include="..\BillingSystem.Infrastructure\BillingSystem.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

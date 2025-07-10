@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "BOudqPuOsyY=",
-  "success": false,
+  "dgSpecHash": "+avJiVHzi2g=",
+  "success": true,
   "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
   "expectedPackageFiles": [
-    "/home/mr1compiler/.nuget/packages/automapper/15.0.0/automapper.15.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication/2.3.0/microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
@@ -55,10 +54,6 @@
     "/home/mr1compiler/.nuget/packages/microsoft.extensions.options/9.0.6/microsoft.extensions.options.9.0.6.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.extensions.primitives/9.0.6/microsoft.extensions.primitives.9.0.6.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.extensions.webencoders/8.0.11/microsoft.extensions.webencoders.8.0.11.nupkg.sha512",
-    "/home/mr1compiler/.nuget/packages/microsoft.identitymodel.abstractions/8.0.1/microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
-    "/home/mr1compiler/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.0.1/microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
-    "/home/mr1compiler/.nuget/packages/microsoft.identitymodel.logging/8.0.1/microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
-    "/home/mr1compiler/.nuget/packages/microsoft.identitymodel.tokens/8.0.1/microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.net.http.headers/2.3.0/microsoft.net.http.headers.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
@@ -86,17 +81,5 @@
     "/home/mr1compiler/.nuget/packages/system.text.json/9.0.6/system.text.json.9.0.6.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Cycle detected. \n  BillingSystem.Persistence -> BillingSystem.Infrastructure -> BillingSystem.Persistence.",
-      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
-      "filePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj",
-      "libraryId": "BillingSystem.Persistence",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

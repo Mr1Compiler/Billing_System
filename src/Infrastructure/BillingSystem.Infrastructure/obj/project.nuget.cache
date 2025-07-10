@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "zG7ICUcorCc=",
-  "success": false,
+  "dgSpecHash": "ytjEvx1jYn4=",
+  "success": true,
   "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/mr1compiler/.nuget/packages/automapper/15.0.0/automapper.15.0.0.nupkg.sha512",
@@ -59,17 +59,5 @@
     "/home/mr1compiler/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Cycle detected. \n  BillingSystem.Infrastructure -> BillingSystem.Persistence -> BillingSystem.Infrastructure.",
-      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
-      "filePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
-      "libraryId": "BillingSystem.Infrastructure",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
