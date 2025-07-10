@@ -6,7 +6,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\V1\" />
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.0" />
   </ItemGroup>
 
   <PropertyGroup>

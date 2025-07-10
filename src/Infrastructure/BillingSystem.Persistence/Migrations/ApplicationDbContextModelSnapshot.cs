@@ -164,7 +164,7 @@ namespace BillingSystem.Persistence.Migrations
 
                     b.HasIndex("TenantId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.Entities.CustomerSubscription", b =>
@@ -200,7 +200,7 @@ namespace BillingSystem.Persistence.Migrations
 
                     b.HasIndex("SubscriptionPlanId");
 
-                    b.ToTable("CustomerSubscriptions");
+                    b.ToTable("CustomerSubscriptions", (string)null);
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.Entities.SubscriptionPlan", b =>
@@ -237,7 +237,7 @@ namespace BillingSystem.Persistence.Migrations
 
                     b.HasIndex("TenantId");
 
-                    b.ToTable("SubscriptionPlans");
+                    b.ToTable("SubscriptionPlans", (string)null);
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.Entities.Tenant", b =>
@@ -267,7 +267,7 @@ namespace BillingSystem.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tenants");
+                    b.ToTable("Tenants", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

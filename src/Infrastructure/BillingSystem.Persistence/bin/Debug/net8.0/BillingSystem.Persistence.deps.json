@@ -9,7 +9,6 @@
       "BillingSystem.Persistence/1.0.0": {
         "dependencies": {
           "BillingSystem.Domain": "1.0.0",
-          "BillingSystem.Infrastructure": "1.0.0",
           "BillingSystem.Shared": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.17",
           "Microsoft.EntityFrameworkCore": "9.0.6",
@@ -1011,18 +1010,6 @@
         }
       },
       "System.Threading.Channels/7.0.0": {},
-      "BillingSystem.Application/1.0.0": {
-        "dependencies": {
-          "BillingSystem.Domain": "1.0.0",
-          "BillingSystem.Shared": "1.0.0"
-        },
-        "runtime": {
-          "BillingSystem.Application.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "BillingSystem.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.3.1",
@@ -1030,18 +1017,6 @@
         },
         "runtime": {
           "BillingSystem.Domain.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "BillingSystem.Infrastructure/1.0.0": {
-        "dependencies": {
-          "BillingSystem.Application": "1.0.0",
-          "BillingSystem.Domain": "1.0.0"
-        },
-        "runtime": {
-          "BillingSystem.Infrastructure.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1595,17 +1570,7 @@
       "path": "system.threading.channels/7.0.0",
       "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
     },
-    "BillingSystem.Application/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "BillingSystem.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "BillingSystem.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

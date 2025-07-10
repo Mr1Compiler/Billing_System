@@ -1,14 +1,10 @@
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Persistence.deps.json
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Persistence.dll
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Persistence.pdb
-/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Application.dll
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Domain.dll
-/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Infrastructure.dll
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Shared.dll
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Domain.pdb
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Shared.pdb
-/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Infrastructure.pdb
-/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/bin/Debug/net8.0/BillingSystem.Application.pdb
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/obj/Debug/net8.0/BillingSystem.Persistence.csproj.AssemblyReference.cache
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/obj/Debug/net8.0/BillingSystem.Persistence.GeneratedMSBuildEditorConfig.editorconfig
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/obj/Debug/net8.0/BillingSystem.Persistence.AssemblyInfoInputs.cache

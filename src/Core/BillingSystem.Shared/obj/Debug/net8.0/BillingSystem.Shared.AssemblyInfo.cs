@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BillingSystem.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6e66d473115af2175af18e377b329c1ba350f83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c17465d4832a5dbe8d54f6ae8e6922e026875ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("BillingSystem.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BillingSystem.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
