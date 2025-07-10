@@ -17,6 +17,9 @@ public class CustomerRepository : ICustomerRepository
     public async Task<IEnumerable<Customer>> GetAllAsync() 
         => await _dbContext.Customers.ToListAsync();
 
+    public async Task<bool> ExistsAsync(Guid id)
+        => await _dbContext.Customers.AnyAsync(u => u.Id == id);
+
     public async Task<Customer> AddAsync(Customer customer)
     {
         var result = await _dbContext.Customers.AddAsync(customer);

@@ -20,6 +20,9 @@ public class CustomerSubscriptionRepository : ICustomerSubscriptionRepository
     public async Task<CustomerSubscription> GetByIdAsync(Guid id)
         => await _dbContext.CustomerSubscriptions.FirstOrDefaultAsync(u => u.Id == id);
 
+    public async Task<bool> ExistsAsync(Guid id)
+        => await _dbContext.CustomerSubscriptions.AnyAsync(u => u.Id == id);
+
     public async Task<CustomerSubscription> AddAsync(CustomerSubscription customerSubscription)
     {
         var result = await _dbContext.CustomerSubscriptions.AddAsync(customerSubscription);

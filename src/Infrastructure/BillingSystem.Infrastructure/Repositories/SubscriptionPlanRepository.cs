@@ -21,6 +21,9 @@ public class SubscriptionPlanRepository : ISubscriptionPlanRepository
     public async Task<SubscriptionPlan> GetByIdAsync(Guid id)
         => await _dbContext.SubscriptionPlans.FirstOrDefaultAsync(u => u.Id == id);
 
+    public async Task<bool> ExistsAsync(Guid id)
+        => await _dbContext.SubscriptionPlans.AnyAsync(u => u.Id == id);
+
     public async Task<SubscriptionPlan> AddAsync(SubscriptionPlan subscriptionPlan)
     {
         var result = await _dbContext.SubscriptionPlans.AddAsync(subscriptionPlan);

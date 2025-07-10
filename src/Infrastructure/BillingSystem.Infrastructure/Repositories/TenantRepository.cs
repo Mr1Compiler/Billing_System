@@ -19,6 +19,9 @@ public class TenantRepository : ITenantRepository
     public async Task<Tenant> GetByIdAsync(Guid id)
         => await _dbContext.Tenants.FirstOrDefaultAsync(u => u.Id == id);
 
+    public async Task<bool> ExistsAsync(Guid id)
+        => await _dbContext.Tenants.AnyAsync(u => u.Id == id);
+
     public async Task<Tenant> AddAsync(Tenant tenant)
     {
         var result = await _dbContext.Tenants.AddAsync(tenant);

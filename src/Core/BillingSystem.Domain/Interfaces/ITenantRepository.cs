@@ -6,6 +6,7 @@ public interface ITenantRepository
 {
     Task<IEnumerable<Tenant>> GetAllAsync();
     Task<Tenant> GetByIdAsync(Guid id);
+    Task<bool> ExistsAsync(Guid id);
     Task<Tenant> AddAsync(Tenant tenant);
     Task<Tenant> UpdateAsync(Tenant tenant);
     Task<bool> DeleteAsync(Guid id);  
