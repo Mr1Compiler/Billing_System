@@ -1,32 +1,50 @@
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
+using BillingSystem.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BillingSystem.Infrastructure.Repositories;
 
 public class CustomerRepository : ICustomerRepository
 {
-    public Task<IEnumerable<Customer>> GetAllAsync()
+    private readonly ApplicationDbContext _dbContext;
+
+    public CustomerRepository(ApplicationDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+    
+    public async Task<IEnumerable<Customer>> GetAllAsync() 
+        => await _dbContext.Customers.ToListAsync();
+
+    public async Task<Customer> AddAsync(Customer customer)
+    {
+        var result = await _dbContext.Customers.AddAsync(customer);
+        await _dbContext.SaveChangesAsync();
+        return customer;
+    }
+    
+    public async Task<Customer> GetByIdAsync(Guid id)
+        => await _dbContext.Customers.FirstAsync(u => u.Id == id);
+
+    public async Task<Customer> UpdateAsync(Customer customer)
+    {
+        var result = _dbContext.Customers.Update(customer);
+        await _dbContext.SaveChangesAsync();
+        return customer;
     }
 
-    public Task<Customer> AddAsync(Customer customer)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Customer> GetByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Customer> UpdateAsync(Customer customer)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
+        var customer = await _dbContext.Customers.FirstOrDefaultAsync(u => u.Id == id);
+        
+        if (customer != null)
+        {
+            _dbContext.Customers.Remove(customer);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+        
+        return false;
     }
 }

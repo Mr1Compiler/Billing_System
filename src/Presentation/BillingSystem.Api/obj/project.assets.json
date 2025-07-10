@@ -1016,7 +1016,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "BillingSystem.Application": "1.0.0",
-          "BillingSystem.Domain": "1.0.0"
+          "BillingSystem.Domain": "1.0.0",
+          "BillingSystem.Persistence": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BillingSystem.Infrastructure.dll": {}

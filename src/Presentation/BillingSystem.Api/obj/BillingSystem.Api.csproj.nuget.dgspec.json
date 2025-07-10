@@ -222,6 +222,9 @@
               },
               "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {
                 "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj"
+              },
+              "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj": {
+                "projectPath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Persistence/BillingSystem.Persistence.csproj"
               }
             }
           }
