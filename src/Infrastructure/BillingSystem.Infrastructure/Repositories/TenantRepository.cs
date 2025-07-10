@@ -1,32 +1,49 @@
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
+using BillingSystem.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BillingSystem.Infrastructure.Repositories;
 
 public class TenantRepository : ITenantRepository
 {
-    public Task<IEnumerable<Tenant>> GetAllAsync()
+    private readonly ApplicationDbContext _dbContext;
+
+    public TenantRepository(ApplicationDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+    public async Task<IEnumerable<Tenant>> GetAllAsync()
+        => await _dbContext.Tenants.ToListAsync();
+    
+    public async Task<Tenant> GetByIdAsync(Guid id)
+        => await _dbContext.Tenants.FirstOrDefaultAsync(u => u.Id == id);
+
+    public async Task<Tenant> AddAsync(Tenant tenant)
+    {
+        var result = await _dbContext.Tenants.AddAsync(tenant);
+        await _dbContext.SaveChangesAsync();
+        return tenant;
     }
 
-    public Task<Tenant> GetByIdAsync(Guid id)
+    public async Task<Tenant> UpdateAsync(Tenant tenant)
     {
-        throw new NotImplementedException();
+        var result = _dbContext.Tenants.Update(tenant);
+        await _dbContext.SaveChangesAsync();
+        return tenant;
     }
 
-    public Task<Tenant> AddAsync(Tenant tenant)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
-    }
+        var tenant = await _dbContext.Tenants.FirstOrDefaultAsync(u => u.Id == id);
 
-    public Task<Tenant> UpdateAsync(Tenant tenant)
-    {
-        throw new NotImplementedException();
-    }
+        if (tenant != null)
+        {
+            _dbContext.Tenants.Remove(tenant);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
 
-    public Task<bool> DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
+        return false;
     }
 }
