@@ -1,32 +1,50 @@
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
+using BillingSystem.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BillingSystem.Infrastructure.Repositories;
 
 public class CustomerSubscriptionRepository : ICustomerSubscriptionRepository
 {
-    public Task<IEnumerable<CustomerSubscription>> GetAllAsync()
+    private readonly ApplicationDbContext _dbContext;
+
+    public CustomerSubscriptionRepository(ApplicationDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
     }
 
-    public Task<CustomerSubscription> GetByIdAsync(Guid id)
+    public async Task<IEnumerable<CustomerSubscription>> GetAllAsync() 
+        => await _dbContext.CustomerSubscriptions.ToListAsync();
+
+    public async Task<CustomerSubscription> GetByIdAsync(Guid id)
+        => await _dbContext.CustomerSubscriptions.FirstOrDefaultAsync(u => u.Id == id);
+
+    public async Task<CustomerSubscription> AddAsync(CustomerSubscription customerSubscription)
     {
-        throw new NotImplementedException();
+        var result = await _dbContext.CustomerSubscriptions.AddAsync(customerSubscription);
+        await _dbContext.SaveChangesAsync();
+        return customerSubscription;
     }
 
-    public Task<CustomerSubscription> AddAsync(CustomerSubscription customerSubscription)
+    public async Task<CustomerSubscription> UpdateAsync(CustomerSubscription customerSubscription)
     {
-        throw new NotImplementedException();
+        var result = _dbContext.CustomerSubscriptions.Update(customerSubscription);
+        await _dbContext.SaveChangesAsync();
+        return customerSubscription;
     }
 
-    public Task<CustomerSubscription> UpdateAsync(CustomerSubscription customerSubscription)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
-    }
+        var customerSubscription = await _dbContext.CustomerSubscriptions.FirstOrDefaultAsync(u => u.Id == id);
 
-    public Task<bool> DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
+        if (customerSubscription != null)
+        {
+            _dbContext.CustomerSubscriptions.Remove(customerSubscription);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+        return false;
     }
 }
