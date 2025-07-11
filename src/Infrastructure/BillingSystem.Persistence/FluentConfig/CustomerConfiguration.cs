@@ -29,7 +29,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 
         builder.Property(u => u.PhoneNumber)
             .HasMaxLength(20);
-        
+
         builder.Property(u => u.Address)
             .HasMaxLength(255);
 

@@ -4,7 +4,7 @@ namespace BillingSystem.Application.DTOs.V1.Admins;
     Read-only DTO for returning Admins details.
     No validation attributes needed.
 */
-public class ApplicationUserDto
+public class AdminDto
 {
     public Guid Id { get; set; }
     public string UserName { get; set; } = null!;
