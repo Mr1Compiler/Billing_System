@@ -20,6 +20,15 @@ public class CustomerRepository : ICustomerRepository
     public async Task<bool> ExistsAsync(Guid id)
         => await _dbContext.Customers.AnyAsync(u => u.Id == id);
 
+    public async Task<bool> ExistsByEmailAsync(string email)
+    {
+        var result = await _dbContext.Customers.FirstOrDefaultAsync(u => u.Email == email);
+        if (result != null)
+            return true;
+        
+        return false;
+    }
+
     public async Task<Customer> AddAsync(Customer customer)
     {
         var result = await _dbContext.Customers.AddAsync(customer);
