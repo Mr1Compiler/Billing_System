@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FAxNsx8+6As=",
+  "dgSpecHash": "Yfm5x3YYJ80=",
   "success": true,
   "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Presentation/BillingSystem.Api/BillingSystem.Api.csproj",
   "expectedPackageFiles": [
     "/home/mr1compiler/.nuget/packages/automapper/15.0.0/automapper.15.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/fluentresults/4.0.0/fluentresults.4.0.0.nupkg.sha512",
+    "/home/mr1compiler/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication/2.3.0/microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.3.0/microsoft.aspnetcore.authentication.cookies.2.3.0.nupkg.sha512",

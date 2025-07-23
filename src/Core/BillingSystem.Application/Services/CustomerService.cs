@@ -5,6 +5,7 @@ using BillingSystem.Application.Validation;
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
+using FluentValidation;
 
 namespace BillingSystem.Application.Services;
 
@@ -12,11 +13,14 @@ public class CustomerService : ICustomerService
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
+    private readonly IValidator<CustomerCreateDto> _validator;
 
-    public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
+    public CustomerService(ICustomerRepository customerRepository, IMapper mapper,
+        IValidator<CustomerCreateDto> validator)
     {
         _customerRepository = customerRepository;
         _mapper = mapper;
+        _validator = validator;
     }
 
     public async Task<Result<CustomerDto>> GetCustomerByIdAsync(Guid id)
@@ -41,29 +45,46 @@ public class CustomerService : ICustomerService
         return Result.Ok(customerListDto);
     }
 
-    public async Task<Result<CustomerCreateDto>> CreateCustomerAsync(CustomerCreateDto customerCreateDto)
+    public async Task<Result<CustomerDto>> CreateCustomerAsync(CustomerCreateDto customerCreateDto)
     {
-        // I'll user validator later (FluentValidation)
+        var validationResult = await _validator.ValidateAsync(customerCreateDto);
+        if (!validationResult.IsValid)
+            return Result.Fail<CustomerDto>("There are missing or invalid fields.");
+
         var customer = _mapper.Map<Customer>(customerCreateDto);
         await _customerRepository.AddAsync(customer);
 
-        return Result.Ok(customerCreateDto);
+        var resultDto = _mapper.Map<CustomerDto>(customer);
+        return Result.Ok(resultDto);
     }
 
-    public async Task<Result<CustomerUpdateDto>> UpdateCustomerAsync(CustomerUpdateDto customerUpdateDto)
+    public async Task<Result<CustomerDto>> UpdateCustomerAsync(CustomerUpdateDto dto)
     {
-        // I'll user validator later (FluentValidation)
+        var customer = await _customerRepository.GetByIdAsync(dto.Id);
+        if (customer == null)
+            return Result.Fail<CustomerDto>("Customer with the given ID does not exist");
 
-        // Check if customer exists
-        var exists = await _customerRepository.ExistsAsync(customerUpdateDto.Id);
-        if (!exists)
-            return Result.Fail<CustomerUpdateDto>("Customer with the given ID does not exist");
+        if (!string.IsNullOrWhiteSpace(dto.FirstName))
+            customer.FirstName = dto.FirstName;
 
-        // Map and update
-        var customer = _mapper.Map<Customer>(customerUpdateDto);
+        if (!string.IsNullOrWhiteSpace(dto.LastName))
+            customer.LastName = dto.LastName;
+
+        if (!string.IsNullOrWhiteSpace(dto.PhoneNumber))
+            customer.PhoneNumber = dto.PhoneNumber;
+
+        if (!string.IsNullOrWhiteSpace(dto.Address))
+            customer.Address = dto.Address;
+
+        if (dto.DateOfBirth.HasValue)
+            customer.DateOfBirth = dto.DateOfBirth;
+        
+        customer.UpdatedAt = DateTime.UtcNow;
+
         await _customerRepository.UpdateAsync(customer);
 
-        return Result.Ok(customerUpdateDto);
+        var resultDto = _mapper.Map<CustomerDto>(customer);
+        return Result.Ok(resultDto);
     }
 
     public async Task<Result<bool>> DeleteCustomerAsync(Guid id)
