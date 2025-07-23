@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "R70qpqYqVPk=",
+  "dgSpecHash": "FAxNsx8+6As=",
   "success": true,
   "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Presentation/BillingSystem.Api/BillingSystem.Api.csproj",
   "expectedPackageFiles": [
     "/home/mr1compiler/.nuget/packages/automapper/15.0.0/automapper.15.0.0.nupkg.sha512",
+    "/home/mr1compiler/.nuget/packages/fluentresults/4.0.0/fluentresults.4.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication/2.3.0/microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.3.0/microsoft.aspnetcore.authentication.cookies.2.3.0.nupkg.sha512",
@@ -64,7 +65,8 @@
     "/home/mr1compiler/.nuget/packages/system.security.cryptography.pkcs/8.0.1/system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/system.security.cryptography.xml/8.0.2/system.security.cryptography.xml.8.0.2.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
-    "/home/mr1compiler/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512"
+    "/home/mr1compiler/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
+    "/home/mr1compiler/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
