@@ -6,7 +6,7 @@ namespace BillingSystem.Application.DTOs.V1.Customers;
 */
 public class CustomerDto
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
     public string Email { get; set; } = null!;

@@ -2,10 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BillingSystem.Application.DTOs.V1.Customers;
 
-// Don't forget to update the **updatedat** property 
 public class CustomerUpdateDto
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public string? PhoneNumber { get; set; }
