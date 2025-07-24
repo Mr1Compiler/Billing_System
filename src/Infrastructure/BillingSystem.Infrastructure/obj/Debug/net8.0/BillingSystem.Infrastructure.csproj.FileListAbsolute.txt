@@ -18,3 +18,5 @@
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/obj/Debug/net8.0/refint/BillingSystem.Infrastructure.dll
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/obj/Debug/net8.0/BillingSystem.Infrastructure.pdb
 /mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/obj/Debug/net8.0/ref/BillingSystem.Infrastructure.dll
+/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/bin/Debug/net8.0/BillingSystem.Persistence.dll
+/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/bin/Debug/net8.0/BillingSystem.Persistence.pdb

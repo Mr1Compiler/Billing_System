@@ -41,8 +41,6 @@ public class CustomerMapping : Profile
             .ReverseMap();
 
         CreateMap<CustomerCreateDto, Customer>()
-            .ForMember(dest => dest.Id,
-                src => src.MapFrom((u => u.Id)))
             .ForMember(dest => dest.FirstName,
                 src => src.MapFrom((u => u.FirstName)))
             .ForMember(dest => dest.LastName,
@@ -58,6 +56,23 @@ public class CustomerMapping : Profile
             .AfterMap((src, dest) =>
                 dest.CreatedAt = DateTime.UtcNow
             )
+            .ReverseMap();
+        
+        CreateMap<CustomerUpdateDto, Customer>()
+            .ForMember(dest => dest.Id,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.FirstName,
+                opt => opt.MapFrom(src => src.FirstName))
+            .ForMember(dest => dest.LastName,
+                opt => opt.MapFrom(src => src.LastName))
+            .ForMember(dest => dest.PhoneNumber,
+                opt => opt.MapFrom(src => src.PhoneNumber))
+            .ForMember(dest => dest.DateOfBirth,
+                opt => opt.MapFrom(src => src.DateOfBirth))
+            .ForMember(dest => dest.Address,
+                opt => opt.MapFrom(src => src.Address))
+            .ForMember(dest => dest.UpdatedAt,
+                opt => opt.MapFrom(_ => DateTime.UtcNow))
             .ReverseMap();
     }
 }

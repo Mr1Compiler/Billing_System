@@ -6,7 +6,7 @@ namespace BillingSystem.Application.DTOs.V1.Admins;
 */
 public class AdminDto
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
     public string UserName { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string FirstName { get; set; } = null!;
