@@ -6,8 +6,8 @@ public interface ICustomerSubscriptionRepository
 {
     Task<IEnumerable<CustomerSubscription>> GetAllAsync();
     Task<CustomerSubscription> GetByIdAsync(Guid id);
-    Task<bool> ExistsAsync(Guid id);
     Task<CustomerSubscription> AddAsync(CustomerSubscription customerSubscription);
     Task<CustomerSubscription> UpdateAsync(CustomerSubscription customerSubscription);
+    Task<bool> ExistsAsync(Guid id);
     Task<bool> DeleteAsync(Guid id);
 }
