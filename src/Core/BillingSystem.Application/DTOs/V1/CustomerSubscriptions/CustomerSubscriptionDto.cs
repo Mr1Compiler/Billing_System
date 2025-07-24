@@ -9,6 +9,6 @@ public class CustomerSubscriptionDto
     public DateTime EndDate { get; set; }
     public SubscriptionStatus SubscriptionStatus { get; set; }
     public bool IsRenewable { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } 
+    public DateTime UpdatedAt { get; set; } 
  }
