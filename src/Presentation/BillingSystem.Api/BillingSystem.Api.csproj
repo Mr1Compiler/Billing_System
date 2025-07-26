@@ -18,8 +18,4 @@
     <ProjectReference Include="..\..\Infrastructure\BillingSystem.Persistence\BillingSystem.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\V1\" />
-  </ItemGroup>
-
 </Project>
