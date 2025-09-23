@@ -1,11 +1,11 @@
 using AutoMapper;
 using BillingSystem.Application.DTOs.V1.Customers;
 using BillingSystem.Application.Interfaces;
-using BillingSystem.Application.Validation;
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
 using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
 
@@ -13,14 +13,21 @@ public class CustomerService : ICustomerService
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<CustomerCreateDto> _validator;
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IValidator<CustomerUpdateDto> _updateValidator;
+
 
     public CustomerService(ICustomerRepository customerRepository, IMapper mapper,
-        IValidator<CustomerCreateDto> validator)
+        IServiceProvider serviceProvider)
     {
         _customerRepository = customerRepository;
         _mapper = mapper;
-        _validator = validator;
+        _serviceProvider = serviceProvider;
+    }
+
+    private IValidator<T> GetValidator<T>()
+    {
+        return _serviceProvider.GetRequiredService<IValidator<T>>();
     }
 
     public async Task<Result<CustomerDto>> GetCustomerByIdAsync(Guid id)
@@ -47,7 +54,7 @@ public class CustomerService : ICustomerService
 
     public async Task<Result<CustomerDto>> CreateCustomerAsync(CustomerCreateDto customerCreateDto)
     {
-        var validationResult = await _validator.ValidateAsync(customerCreateDto);
+        var validationResult = await GetValidator<CustomerCreateDto>().ValidateAsync(customerCreateDto);
         if (!validationResult.IsValid)
             return Result.Fail<CustomerDto>("There are missing or invalid fields.");
 
@@ -60,25 +67,13 @@ public class CustomerService : ICustomerService
 
     public async Task<Result<CustomerDto>> UpdateCustomerAsync(CustomerUpdateDto dto)
     {
-        var customer = await _customerRepository.GetByIdAsync(dto.Id);
-        if (customer == null)
-            return Result.Fail<CustomerDto>("Customer with the given ID does not exist");
+        var validationResult = await GetValidator<CustomerUpdateDto>().ValidateAsync(dto);
 
-        if (!string.IsNullOrWhiteSpace(dto.FirstName))
-            customer.FirstName = dto.FirstName;
-
-        if (!string.IsNullOrWhiteSpace(dto.LastName))
-            customer.LastName = dto.LastName;
-
-        if (!string.IsNullOrWhiteSpace(dto.PhoneNumber))
-            customer.PhoneNumber = dto.PhoneNumber;
-
-        if (!string.IsNullOrWhiteSpace(dto.Address))
-            customer.Address = dto.Address;
-
-        if (dto.DateOfBirth.HasValue)
-            customer.DateOfBirth = dto.DateOfBirth;
+        if (!validationResult.IsValid)
+            return Result.Fail<CustomerDto>("There are missing or invalid field");
         
+        var customer = await _customerRepository.GetByIdAsync(dto.Id);
+
         customer.UpdatedAt = DateTime.UtcNow;
 
         await _customerRepository.UpdateAsync(customer);

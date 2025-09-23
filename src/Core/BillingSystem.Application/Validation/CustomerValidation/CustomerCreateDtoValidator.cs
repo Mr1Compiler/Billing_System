@@ -1,7 +1,7 @@
-using FluentValidation;
 using BillingSystem.Application.DTOs.V1.Customers;
+using FluentValidation;
 
-namespace BillingSystem.Application.Validation;
+namespace BillingSystem.Application.Validation.CustomerValidation;
 
 public class CustomerCreateDtoValidator : AbstractValidator<CustomerCreateDto>
 {
