@@ -5,6 +5,7 @@ using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
 using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
 
@@ -12,16 +13,19 @@ public class AdminService : IAdminService
 {
     private readonly IAdminRepository _adminRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<AdminCreateDto> _validator;
-
+    private readonly IServiceProvider _serviceProvider;
     public AdminService(IAdminRepository adminRepository, IMapper mapper,
-        IValidator<AdminCreateDto> validator)
+        IServiceProvider serviceProvider)
     {
         _adminRepository = adminRepository;
         _mapper = mapper;
-        _validator = validator;
+        _serviceProvider = serviceProvider;
     }
-
+    
+    private IValidator<T> GetValidator<T>()
+    {
+        return _serviceProvider.GetRequiredService<IValidator<T>>();
+    }
     public async Task<Result<AdminDto>> GetAdminByIdAsync(Guid id)
     {
         var admin = await _adminRepository.GetByIdAsync(id);
@@ -45,7 +49,7 @@ public class AdminService : IAdminService
 
     public async Task<Result<AdminDto>> CreateAdminAsync(AdminCreateDto adminCreateDto)
     {
-        var validationResult = await _validator.ValidateAsync(adminCreateDto);
+        var validationResult = await GetValidator<AdminCreateDto>().ValidateAsync(adminCreateDto);
         if (!validationResult.IsValid)
             return Result.Fail<AdminDto>("Invalid or missing fields");
 
@@ -58,6 +62,12 @@ public class AdminService : IAdminService
 
     public async Task<Result<AdminDto>> UpdateAdminAsync(AdminUpdateDto dto)
     {
+        // Validate the dto
+        var validationResult = await GetValidator<AdminUpdateDto>().ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+            return Result.Fail<AdminDto>("Invalid or missing fields");
+            
         var admin = await _adminRepository.GetByIdAsync(dto.Id);
         if (admin == null)
             return Result.Fail<AdminDto>("Admin not found");
