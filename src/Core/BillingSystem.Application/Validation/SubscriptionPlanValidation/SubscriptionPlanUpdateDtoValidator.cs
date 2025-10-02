@@ -1,7 +1,7 @@
 using BillingSystem.Application.DTOs.V1.SubscriptionPlans;
 using FluentValidation;
 
-namespace BillingSystem.Application.Validation;
+namespace BillingSystem.Application.Validation.SubscriptionPlanValidation;
 
 public class SubscriptionPlanUpdateDtoValidator : AbstractValidator<SubscriptionPlanUpdateDto>
 {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pmKykm7rlfM=",
+  "dgSpecHash": "C+TDPmGpEMM=",
   "success": true,
-  "projectFilePath": "/mnt/hdd/bill_project/billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
+  "projectFilePath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Infrastructure/BillingSystem.Infrastructure/BillingSystem.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/mr1compiler/.nuget/packages/automapper/15.0.0/automapper.15.0.0.nupkg.sha512",
     "/home/mr1compiler/.nuget/packages/fluentresults/4.0.0/fluentresults.4.0.0.nupkg.sha512",

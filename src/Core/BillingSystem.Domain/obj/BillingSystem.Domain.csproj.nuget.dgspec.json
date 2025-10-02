@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {}
+    "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {}
   },
   "projects": {
-    "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+    "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj",
+        "projectUniqueName": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj",
         "projectName": "BillingSystem.Domain",
-        "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj",
+        "projectPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj",
         "packagesPath": "/home/mr1compiler/.nuget/packages/",
-        "outputPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/obj/",
+        "outputPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mr1compiler/.nuget/NuGet/NuGet.Config"

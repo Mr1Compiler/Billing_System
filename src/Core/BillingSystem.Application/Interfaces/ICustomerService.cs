@@ -10,5 +10,5 @@ public interface ICustomerService
     Task<Result<IEnumerable<CustomerListDto>>> GetAllCustomersAsync();
     Task<Result<CustomerDto>> CreateCustomerAsync(CustomerCreateDto customerCreateDto);
     Task<Result<CustomerDto>> UpdateCustomerAsync(CustomerUpdateDto customerUpdateDto); 
-    Task<Result<bool>> DeleteCustomerAsync(Guid id);
+    Task<Result<bool>> DeleteCustomerAsync(CustomerDeleteDto customerDeleteDto);
 }

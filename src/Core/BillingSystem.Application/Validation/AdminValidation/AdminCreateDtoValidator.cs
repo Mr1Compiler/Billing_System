@@ -1,8 +1,7 @@
 using BillingSystem.Application.DTOs.V1.Admins;
 using FluentValidation;
-using BillingSystem.Application.DTOs.V1.Customers;
 
-namespace BillingSystem.Application.Validation;
+namespace BillingSystem.Application.Validation.AdminValidation;
 
 public class AdminCreateDtoValidator : AbstractValidator<AdminCreateDto>
 {

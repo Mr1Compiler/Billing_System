@@ -1,9 +1,7 @@
-using FluentValidation;
-using BillingSystem.Application.DTOs.V1.Customers;
 using BillingSystem.Application.DTOs.V1.SubscriptionPlans;
-using BillingSystem.Application.DTOs.V1.Tenants;
+using FluentValidation;
 
-namespace BillingSystem.Application.Validation;
+namespace BillingSystem.Application.Validation.SubscriptionPlanValidation;
 
 
 public class SubscriptionPlanCreateDtoValidator : AbstractValidator<SubscriptionPlanCreateDto>

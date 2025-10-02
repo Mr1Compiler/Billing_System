@@ -1,8 +1,7 @@
-using FluentValidation;
-using BillingSystem.Application.DTOs.V1.Customers;
 using BillingSystem.Application.DTOs.V1.Tenants;
+using FluentValidation;
 
-namespace BillingSystem.Application.Validation;
+namespace BillingSystem.Application.Validation.TenantValidation;
 
 public class TenantCreateDtoValidator : AbstractValidator<TenantCreateDto>
 {

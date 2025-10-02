@@ -14,7 +14,6 @@ public class CustomerService : ICustomerService
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
     private readonly IServiceProvider _serviceProvider;
-    private readonly IValidator<CustomerUpdateDto> _updateValidator;
 
 
     public CustomerService(ICustomerRepository customerRepository, IMapper mapper,
@@ -82,15 +81,21 @@ public class CustomerService : ICustomerService
         return Result.Ok(resultDto);
     }
 
-    public async Task<Result<bool>> DeleteCustomerAsync(Guid id)
+    public async Task<Result<bool>> DeleteCustomerAsync(CustomerDeleteDto dto) 
     {
+        var validationResult = await GetValidator<CustomerDeleteDto>().ValidateAsync(dto);
+
+        // check if the field is empty
+        if (!validationResult.IsValid)
+            return Result.Fail<bool>("There are missing or invalid field");
+        
         // Check if the customer exists
-        var exists = await _customerRepository.ExistsAsync(id);
+        var exists = await _customerRepository.ExistsAsync(dto.Id);
         if (!exists)
             return Result.Fail<bool>("Customer with the given ID does not exist");
 
         // Perform deletion
-        var success = await _customerRepository.DeleteAsync(id);
+        var success = await _customerRepository.DeleteAsync(dto.Id);
         if (!success)
             return Result.Fail<bool>("Failed to delete customer");
 

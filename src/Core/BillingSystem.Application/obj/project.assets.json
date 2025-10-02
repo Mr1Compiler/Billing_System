@@ -2271,11 +2271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Application/BillingSystem.Application.csproj",
+      "projectUniqueName": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Application/BillingSystem.Application.csproj",
       "projectName": "BillingSystem.Application",
-      "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Application/BillingSystem.Application.csproj",
+      "projectPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Application/BillingSystem.Application.csproj",
       "packagesPath": "/home/mr1compiler/.nuget/packages/",
-      "outputPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Application/obj/",
+      "outputPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/mr1compiler/.nuget/NuGet/NuGet.Config"
@@ -2290,11 +2290,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {
-              "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj"
+            "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj": {
+              "projectPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Domain/BillingSystem.Domain.csproj"
             },
-            "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj": {
-              "projectPath": "/mnt/hdd/bill_project/billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj"
+            "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj": {
+              "projectPath": "/home/mr1compiler/Desktop/stuff/cloned_billing_system/src/Core/BillingSystem.Shared/BillingSystem.Shared.csproj"
             }
           }
         }
