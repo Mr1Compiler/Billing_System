@@ -9,3 +9,5 @@
 
 *.DotSettings.user
 
+bin/
+obj/
