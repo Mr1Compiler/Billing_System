@@ -8,4 +8,6 @@ public class CustomerSubscriptionCreateDto
     public DateTime EndDate { get; set; }
     public SubscriptionStatus SubscriptionStatus { get; set; }
     public bool IsRenewable { get; set; }
+    public Guid CustomerId { get; set; }
+    public Guid SubscriptionPlanId { get; set; }
 }

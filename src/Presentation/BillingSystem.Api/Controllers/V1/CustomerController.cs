@@ -2,7 +2,6 @@ using BillingSystem.Api.Common;
 using BillingSystem.Application.DTOs.V1.Customers;
 using BillingSystem.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Services;
 
 namespace BillingSystem.Api.Controllers.V1;
 
@@ -16,7 +15,7 @@ public class CustomerController : ControllerBase
         _customerService = customerService;
     }
 
-    [HttpGet("customers")]
+    [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ApiResponse<IEnumerable<CustomerListDto>>>> GetAllCustomers()
@@ -25,7 +24,7 @@ public class CustomerController : ControllerBase
 
         if (customers.IsFailed)
         {
-            return BadRequest(new ApiResponse<IEnumerable<CustomerListDto>>
+            return NotFound(new ApiResponse<IEnumerable<CustomerListDto>>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(customers.ToResult()),
@@ -40,16 +39,16 @@ public class CustomerController : ControllerBase
         });
     }
 
-    [HttpGet("customers/{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<CustomerDto>>> GetCustomerById(Guid Id)
+    public async Task<ActionResult<ApiResponse<CustomerDto>>> GetCustomerById(Guid id)
     {
-        var customer = await _customerService.GetCustomerByIdAsync(Id);
+        var customer = await _customerService.GetCustomerByIdAsync(id);
 
         if (customer.IsFailed)
         {
-            return BadRequest(new ApiResponse<CustomerDto>
+            return NotFound(new ApiResponse<CustomerDto>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(customer.ToResult()),
@@ -65,7 +64,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<CustomerDto>> CreateNewCustomer(CustomerCreateDto dto)
     {
@@ -81,7 +80,7 @@ public class CustomerController : ControllerBase
         }
 
         return CreatedAtAction(nameof(GetCustomerById),
-            new { Id = newCustomer.Value.Id },
+            new { id = newCustomer.Value.Id },
             new ApiResponse<CustomerDto>
             {
                 Success = true,
@@ -92,14 +91,15 @@ public class CustomerController : ControllerBase
 
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)] 
-    public async Task<ActionResult<CustomerUpdateDto>> UpdateCustomer(CustomerUpdateDto dto)
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CustomerDto>> UpdateCustomer(CustomerUpdateDto dto)
     {
         var updatedCustomer = await _customerService.UpdateCustomerAsync(dto);
 
         if (updatedCustomer.IsFailed)
         {
-            return BadRequest(new ApiResponse<CustomerDto>
+            return NotFound(new ApiResponse<CustomerDto>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(updatedCustomer.ToResult()),
@@ -109,32 +109,28 @@ public class CustomerController : ControllerBase
         return Ok(new ApiResponse<CustomerDto>
         {
             Success = true,
-            Message = "ok",
+            Message = "Customer updated successfully",
             Data = updatedCustomer.Value
         });
     }
     
     [HttpDelete]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<CustomerDeleteDto>> DeleteCustomer(CustomerDeleteDto dto)
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteCustomer(CustomerDeleteDto dto)
     {
         var deleted = await _customerService.DeleteCustomerAsync(dto);
-        
+
         if(deleted.IsFailed)
         {
-            return BadRequest(new ApiResponse<bool>
+            return NotFound(new ApiResponse<bool>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(deleted.ToResult())
             });
         }
 
-        return Ok(new ApiResponse<bool>
-        {
-            Success = true,
-            Message = "ok",
-            Data = deleted.Value,
-        });
+        return NoContent();
     }
 }

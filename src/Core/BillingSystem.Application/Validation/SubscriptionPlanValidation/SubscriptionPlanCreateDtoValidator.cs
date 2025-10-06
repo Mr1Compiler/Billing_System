@@ -8,9 +8,6 @@ public class SubscriptionPlanCreateDtoValidator : AbstractValidator<Subscription
 {
     public SubscriptionPlanCreateDtoValidator()
     {
-        RuleFor(x => x.Id)
-            .NotEmpty().WithMessage("Id is required.");
-
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is required.")
             .MaximumLength(100);
@@ -20,6 +17,9 @@ public class SubscriptionPlanCreateDtoValidator : AbstractValidator<Subscription
 
         RuleFor(x => x.SubscriptionPlanStatus)
             .IsInEnum().WithMessage("Invalid subscription status.");
+
+        RuleFor(x => x.TenantId)
+            .NotEmpty().WithMessage("Tenant ID is required.");
     }
 }
 

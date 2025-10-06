@@ -4,6 +4,8 @@ using BillingSystem.Application.Interfaces;
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
 
@@ -11,11 +13,19 @@ public class SubscriptionPlanService : ISubscriptionPlanService
 {
     private readonly ISubscriptionPlanRepository _repository;
     private readonly IMapper _mapper;
+    private readonly IServiceProvider _serviceProvider;
 
-    public SubscriptionPlanService(ISubscriptionPlanRepository repository, IMapper mapper)
+    public SubscriptionPlanService(ISubscriptionPlanRepository repository, IMapper mapper,
+        IServiceProvider serviceProvider)
     {
         _repository = repository;
         _mapper = mapper;
+        _serviceProvider = serviceProvider;
+    }
+
+    private IValidator<T> GetValidator<T>()
+    {
+        return _serviceProvider.GetRequiredService<IValidator<T>>();
     }
 
     public async Task<Result<SubscriptionPlanDto>> GetByIdAsync(Guid id)
@@ -35,6 +45,10 @@ public class SubscriptionPlanService : ISubscriptionPlanService
 
     public async Task<Result<SubscriptionPlanDto>> CreateAsync(SubscriptionPlanCreateDto dto)
     {
+        var validationResult = await GetValidator<SubscriptionPlanCreateDto>().ValidateAsync(dto);
+        if (!validationResult.IsValid)
+            return Result.Fail<SubscriptionPlanDto>("Invalid or missing fields");
+
         var entity = _mapper.Map<SubscriptionPlan>(dto);
         entity.CreatedAt = DateTime.UtcNow;
         entity.UpdatedAt = DateTime.UtcNow;
@@ -45,6 +59,10 @@ public class SubscriptionPlanService : ISubscriptionPlanService
 
     public async Task<Result<SubscriptionPlanDto>> UpdateAsync(SubscriptionPlanUpdateDto dto)
     {
+        var validationResult = await GetValidator<SubscriptionPlanUpdateDto>().ValidateAsync(dto);
+        if (!validationResult.IsValid)
+            return Result.Fail<SubscriptionPlanDto>("Invalid or missing fields");
+
         var existing = await _repository.GetByIdAsync(dto.Id);
         if (existing == null)
             return Result.Fail<SubscriptionPlanDto>("Plan not found");

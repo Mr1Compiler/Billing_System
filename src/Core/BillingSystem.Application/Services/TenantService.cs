@@ -5,6 +5,7 @@ using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
 using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
 
@@ -12,14 +13,19 @@ public class TenantService : ITenantService
 {
     private readonly ITenantRepository _tenantRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<TenantCreateDto> _validator;
+    private readonly IServiceProvider _serviceProvider;
 
     public TenantService(ITenantRepository tenantRepository, IMapper mapper,
-        IValidator<TenantCreateDto> validator)
+        IServiceProvider serviceProvider)
     {
         _tenantRepository = tenantRepository;
         _mapper = mapper;
-        _validator = validator;
+        _serviceProvider = serviceProvider;
+    }
+
+    private IValidator<T> GetValidator<T>()
+    {
+        return _serviceProvider.GetRequiredService<IValidator<T>>();
     }
 
     public async Task<Result<TenantDto>> GetTenantByIdAsync(Guid id)
@@ -44,7 +50,7 @@ public class TenantService : ITenantService
 
     public async Task<Result<TenantDto>> CreateTenantAsync(TenantCreateDto dto)
     {
-        var validationResult = await _validator.ValidateAsync(dto);
+        var validationResult = await GetValidator<TenantCreateDto>().ValidateAsync(dto);
         if (!validationResult.IsValid)
             return Result.Fail<TenantDto>("Invalid or missing fields");
 
@@ -57,6 +63,10 @@ public class TenantService : ITenantService
 
     public async Task<Result<TenantDto>> UpdateTenantAsync(TenantUpdateDto dto)
     {
+        var validationResult = await GetValidator<TenantUpdateDto>().ValidateAsync(dto);
+        if (!validationResult.IsValid)
+            return Result.Fail<TenantDto>("Invalid or missing fields");
+
         var tenant = await _tenantRepository.GetByIdAsync(dto.Id);
         if (tenant == null)
             return Result.Fail<TenantDto>("Tenant not found");

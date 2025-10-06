@@ -4,6 +4,8 @@ using BillingSystem.Application.Interfaces;
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
 
@@ -11,11 +13,19 @@ public class CustomerSubscriptionService : ICustomerSubscriptionService
 {
     private readonly ICustomerSubscriptionRepository _repository;
     private readonly IMapper _mapper;
+    private readonly IServiceProvider _serviceProvider;
 
-    public CustomerSubscriptionService(ICustomerSubscriptionRepository repository, IMapper mapper)
+    public CustomerSubscriptionService(ICustomerSubscriptionRepository repository, IMapper mapper,
+        IServiceProvider serviceProvider)
     {
         _repository = repository;
         _mapper = mapper;
+        _serviceProvider = serviceProvider;
+    }
+
+    private IValidator<T> GetValidator<T>()
+    {
+        return _serviceProvider.GetRequiredService<IValidator<T>>();
     }
 
     public async Task<Result<CustomerSubscriptionDto>> GetByIdAsync(Guid id)
@@ -37,6 +47,10 @@ public class CustomerSubscriptionService : ICustomerSubscriptionService
 
     public async Task<Result<CustomerSubscriptionDto>> CreateAsync(CustomerSubscriptionCreateDto dto)
     {
+        var validationResult = await GetValidator<CustomerSubscriptionCreateDto>().ValidateAsync(dto);
+        if (!validationResult.IsValid)
+            return Result.Fail<CustomerSubscriptionDto>("Invalid or missing fields");
+
         var entity = _mapper.Map<CustomerSubscription>(dto);
         var result = await _repository.AddAsync(entity);
         return Result.Ok(_mapper.Map<CustomerSubscriptionDto>(result));
@@ -44,6 +58,10 @@ public class CustomerSubscriptionService : ICustomerSubscriptionService
 
     public async Task<Result<CustomerSubscriptionDto>> UpdateAsync(CustomerSubscriptionUpdateDto dto)
     {
+        var validationResult = await GetValidator<CustomerSubscriptionUpdateDto>().ValidateAsync(dto);
+        if (!validationResult.IsValid)
+            return Result.Fail<CustomerSubscriptionDto>("Invalid or missing fields");
+
         var existing = await _repository.GetByIdAsync(dto.Id);
         if (existing == null)
             return Result.Fail<CustomerSubscriptionDto>("Not found");

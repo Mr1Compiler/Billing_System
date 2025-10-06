@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace BillingSystem.Api.Controllers.V1;
 
 [ApiController]
-[Route("api")]
+[Route("api/v1/[controller]")]
 public class AdminController : ControllerBase
 {
-       private readonly IAdminService _adminService;
+    private readonly IAdminService _adminService;
     public AdminController(IAdminService adminService)
     {
         _adminService = adminService;
     }
 
-    [HttpGet("Admins")]
+    [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ApiResponse<IEnumerable<AdminListDto>>>> GetAllAdmins()
@@ -24,7 +24,7 @@ public class AdminController : ControllerBase
 
         if (admins.IsFailed)
         {
-            return BadRequest(new ApiResponse<IEnumerable<AdminListDto>>
+            return NotFound(new ApiResponse<IEnumerable<AdminListDto>>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(admins.ToResult()),
@@ -39,16 +39,16 @@ public class AdminController : ControllerBase
         });
     }
 
-    [HttpGet("Admin/{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<AdminDto>>> GetAdminById(Guid Id)
+    public async Task<ActionResult<ApiResponse<AdminDto>>> GetAdminById(Guid id)
     {
-        var admin = await _adminService.GetAdminByIdAsync(Id);
+        var admin = await _adminService.GetAdminByIdAsync(id);
 
         if (admin.IsFailed)
         {
-            return BadRequest(new ApiResponse<AdminDto>
+            return NotFound(new ApiResponse<AdminDto>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(admin.ToResult()),
@@ -64,7 +64,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<AdminDto>> CreateNewAdmin(AdminCreateDto dto)
     {
@@ -80,7 +80,7 @@ public class AdminController : ControllerBase
         }
 
         return CreatedAtAction(nameof(GetAdminById),
-            new { Id = newAdmin.Value.Id },
+            new { id = newAdmin.Value.Id },
             new ApiResponse<AdminDto>
             {
                 Success = true,
@@ -91,14 +91,15 @@ public class AdminController : ControllerBase
 
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)] 
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<AdminDto>> UpdateAdmin(AdminUpdateDto dto)
     {
         var updatedAdmin = await _adminService.UpdateAdminAsync(dto);
 
         if (updatedAdmin.IsFailed)
         {
-            return BadRequest(new ApiResponse<AdminDto>
+            return NotFound(new ApiResponse<AdminDto>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(updatedAdmin.ToResult()),
@@ -108,32 +109,27 @@ public class AdminController : ControllerBase
         return Ok(new ApiResponse<AdminDto>
         {
             Success = true,
-            Message = "ok",
+            Message = "Admin updated successfully",
             Data = updatedAdmin.Value
         });
     }
 
-    [HttpDelete]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<bool>> DeleteAdminr(Guid Id)
+    public async Task<IActionResult> DeleteAdmin(Guid id)
     {
-        var deleted = await _adminService.DeleteAdminAsync(Id);
+        var deleted = await _adminService.DeleteAdminAsync(id);
 
         if (deleted.IsFailed)
         {
-            return BadRequest(new ApiResponse<bool>
+            return NotFound(new ApiResponse<bool>
             {
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(deleted.ToResult())
             });
         }
 
-        return Ok(new ApiResponse<bool>
-        {
-            Success = true,
-            Message = "ok",
-            Data = deleted.Value,
-        });
+        return NoContent();
     }
 }
