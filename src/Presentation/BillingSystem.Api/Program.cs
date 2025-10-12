@@ -1,6 +1,8 @@
 using AutoMapper;
 using BillingSystem.Api.Extensions;
+using BillingSystem.Application.Validation.CustomerValidation;
 using BillingSystem.Persistence.Data;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 
 // Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
+builder.Services.AddValidatorsFromAssemblyContaining<CustomerCreateDtoValidator>();
 
 builder.Services.AddCustomerService()
     .AddAdminService()
@@ -25,6 +28,7 @@ builder.Services.AddCustomerService()
 
 var app = builder.Build();
 
+app.UseRouting();
 app.MapControllers();
 
 app.Run();
