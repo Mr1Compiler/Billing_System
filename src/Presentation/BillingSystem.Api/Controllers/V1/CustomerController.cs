@@ -7,10 +7,10 @@ namespace BillingSystem.Api.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class CustomerController : ControllerBase
+public class CustomersController : ControllerBase
 {
     private readonly ICustomerService _customerService;
-    public CustomerController(ICustomerService customerService)
+    public CustomersController(ICustomerService customerService)
     {
         _customerService = customerService;
     }

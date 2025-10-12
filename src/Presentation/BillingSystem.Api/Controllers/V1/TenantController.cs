@@ -7,10 +7,10 @@ namespace BillingSystem.Api.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class TenantController : ControllerBase
+public class TenantsController : ControllerBase
 {
     private readonly ITenantService _tenantService;
-    public TenantController(ITenantService tenantService)
+    public TenantsController(ITenantService tenantService)
     {
         _tenantService = tenantService;
     }
