@@ -8,17 +8,17 @@ namespace BillingSystem.Persistence.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
-    // public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-    //     : base(options)
-    // {
-    // }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
-        optionsBuilder.UseNpgsql(
-            "Host=localhost;Port=5432;Database=BillingSystem;Username=postgres;Password=abcSql_00;");
     }
     
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseNpgsql(
+    //         "Host=localhost;Port=5432;Database=BillingSystem;Username=postgres;Password=abcSql_00;");
+    // }
+    //
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<CustomerSubscription> CustomerSubscriptions { get; set; }
