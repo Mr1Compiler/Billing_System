@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();   // needed for Swagger
+builder.Services.AddSwaggerGen();             // adds Swagger generator
 
 // Db context
 builder.Services.AddDbContext<ApplicationDbContext>(option => 
@@ -27,6 +29,13 @@ builder.Services.AddCustomerService()
     .AddTenantService();
 
 var app = builder.Build();
+
+// Enable Swagger middleware
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();            // generate JSON
+    app.UseSwaggerUI();          // Swagger UI page
+}
 
 app.UseRouting();
 app.MapControllers();

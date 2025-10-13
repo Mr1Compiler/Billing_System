@@ -46,8 +46,14 @@ public class SubscriptionPlanService : ISubscriptionPlanService
     public async Task<Result<SubscriptionPlanDto>> CreateAsync(SubscriptionPlanCreateDto dto)
     {
         var validationResult = await GetValidator<SubscriptionPlanCreateDto>().ValidateAsync(dto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<SubscriptionPlanDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+
+            return Result.Fail(errors);
+        }
 
         var entity = _mapper.Map<SubscriptionPlan>(dto);
         entity.CreatedAt = DateTime.UtcNow;
@@ -60,8 +66,14 @@ public class SubscriptionPlanService : ISubscriptionPlanService
     public async Task<Result<SubscriptionPlanDto>> UpdateAsync(SubscriptionPlanUpdateDto dto)
     {
         var validationResult = await GetValidator<SubscriptionPlanUpdateDto>().ValidateAsync(dto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<SubscriptionPlanDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+
+            return Result.Fail(errors);
+        }
 
         var existing = await _repository.GetByIdAsync(dto.Id);
         if (existing == null)

@@ -50,8 +50,14 @@ public class AdminService : IAdminService
     public async Task<Result<AdminDto>> CreateAdminAsync(AdminCreateDto adminCreateDto)
     {
         var validationResult = await GetValidator<AdminCreateDto>().ValidateAsync(adminCreateDto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<AdminDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+            
+            return Result.Fail(errors);
+        }
 
         var admin = _mapper.Map<ApplicationUser>(adminCreateDto);
         await _adminRepository.AddAsync(admin);
@@ -66,7 +72,12 @@ public class AdminService : IAdminService
         var validationResult = await GetValidator<AdminUpdateDto>().ValidateAsync(dto);
 
         if (!validationResult.IsValid)
-            return Result.Fail<AdminDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+            
+            return Result.Fail(errors);
+        }
             
         var admin = await _adminRepository.GetByIdAsync(dto.Id);
         if (admin == null)

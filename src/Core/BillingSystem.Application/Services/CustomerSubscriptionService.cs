@@ -48,8 +48,14 @@ public class CustomerSubscriptionService : ICustomerSubscriptionService
     public async Task<Result<CustomerSubscriptionDto>> CreateAsync(CustomerSubscriptionCreateDto dto)
     {
         var validationResult = await GetValidator<CustomerSubscriptionCreateDto>().ValidateAsync(dto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<CustomerSubscriptionDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+            
+            return Result.Fail(errors);
+        }
 
         var entity = _mapper.Map<CustomerSubscription>(dto);
         var result = await _repository.AddAsync(entity);
@@ -59,8 +65,14 @@ public class CustomerSubscriptionService : ICustomerSubscriptionService
     public async Task<Result<CustomerSubscriptionDto>> UpdateAsync(CustomerSubscriptionUpdateDto dto)
     {
         var validationResult = await GetValidator<CustomerSubscriptionUpdateDto>().ValidateAsync(dto);
+
         if (!validationResult.IsValid)
-            return Result.Fail<CustomerSubscriptionDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+
+            return Result.Fail(errors);
+        }
 
         var existing = await _repository.GetByIdAsync(dto.Id);
         if (existing == null)

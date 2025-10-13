@@ -51,8 +51,14 @@ public class TenantService : ITenantService
     public async Task<Result<TenantDto>> CreateTenantAsync(TenantCreateDto dto)
     {
         var validationResult = await GetValidator<TenantCreateDto>().ValidateAsync(dto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<TenantDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+
+            return Result.Fail(errors);
+        }
 
         var entity = _mapper.Map<Tenant>(dto);
         await _tenantRepository.AddAsync(entity);
@@ -64,8 +70,14 @@ public class TenantService : ITenantService
     public async Task<Result<TenantDto>> UpdateTenantAsync(TenantUpdateDto dto)
     {
         var validationResult = await GetValidator<TenantUpdateDto>().ValidateAsync(dto);
+        
         if (!validationResult.IsValid)
-            return Result.Fail<TenantDto>("Invalid or missing fields");
+        {
+            var errors = validationResult.Errors
+                .Select(e => e.ErrorMessage);
+
+            return Result.Fail(errors);
+        }
 
         var tenant = await _tenantRepository.GetByIdAsync(dto.Id);
         if (tenant == null)
