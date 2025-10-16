@@ -1,9 +1,8 @@
 namespace BillingSystem.Application.DTOs.V1.Tenants;
 
-public class TenantUpdateDto
-{
-    public Guid Id { get; init; }
-    public string? Name { get; set; }
-    public string? Address { get; set; }
-    public string? Domain { get; set; } 
-}
+public record TenantUpdateDto(
+    Guid Id,
+    string? Name,
+    string? Address,
+    string? Domain
+);

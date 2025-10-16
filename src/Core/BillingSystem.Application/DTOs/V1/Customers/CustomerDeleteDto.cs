@@ -1,6 +1,3 @@
 namespace BillingSystem.Application.DTOs.V1.Customers;
 
-public class CustomerDeleteDto
-{
-    public Guid Id { get; set; }
-}
+public record CustomerDeleteDto(Guid Id);
