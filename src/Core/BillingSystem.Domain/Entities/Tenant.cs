@@ -8,6 +8,7 @@ public class Tenant
     public string Name { get; set; } = null!;
     public string Address { get; set; } = null!;
     public TenantStatus TenantStatus { get; set; } = TenantStatus.Active;
+    public string? Domain { get; set; } 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     

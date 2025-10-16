@@ -17,5 +17,8 @@ public class TenantUpdateDtoValidator : AbstractValidator<TenantUpdateDto>
         RuleFor(x => x.Address)
             .MaximumLength(200)
             .When(x => !string.IsNullOrWhiteSpace(x.Address));
+
+        RuleFor(x => x.Domain)
+            .MaximumLength(255);
     }
 }

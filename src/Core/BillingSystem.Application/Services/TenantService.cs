@@ -59,7 +59,7 @@ public class TenantService : ITenantService
 
             return Result.Fail(errors);
         }
-
+        
         var entity = _mapper.Map<Tenant>(dto);
         await _tenantRepository.AddAsync(entity);
 

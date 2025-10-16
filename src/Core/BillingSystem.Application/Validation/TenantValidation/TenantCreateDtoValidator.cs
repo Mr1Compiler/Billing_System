@@ -14,6 +14,9 @@ public class TenantCreateDtoValidator : AbstractValidator<TenantCreateDto>
         RuleFor(u => u.Address)
             .NotEmpty().WithMessage("Address is required")
             .MaximumLength(255).WithMessage("Address cannot exceed 255 characters");
+        
+        RuleFor(x => x.Domain)
+            .MaximumLength(255);
     }
 }
  

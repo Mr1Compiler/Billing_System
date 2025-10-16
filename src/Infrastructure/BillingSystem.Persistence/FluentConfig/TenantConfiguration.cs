@@ -20,8 +20,14 @@ public class TenantConfiguration : IEntityTypeConfiguration<Tenant>
         builder.Property(u => u.Address)
             .HasMaxLength(255);
 
+        builder.Property(u => u.Domain)
+            .HasMaxLength(255);
+
         builder.Property(u => u.Address)
             .HasMaxLength(255);
+
+        builder.HasIndex(u => u.Name)
+            .IsUnique();
 
         // Relations
     }
