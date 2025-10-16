@@ -59,6 +59,11 @@ public class TenantService : ITenantService
 
             return Result.Fail(errors);
         }
+
+        var isExists = await _tenantRepository.ExistsByNameAsync(dto.Name);
+        
+        if (isExists)
+            return Result.Fail(new Error("The name is already exists"));
         
         var entity = _mapper.Map<Tenant>(dto);
         await _tenantRepository.AddAsync(entity);

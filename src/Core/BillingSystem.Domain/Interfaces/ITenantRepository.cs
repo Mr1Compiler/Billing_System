@@ -10,4 +10,5 @@ public interface ITenantRepository
     Task<Tenant> AddAsync(Tenant tenant);
     Task<Tenant> UpdateAsync(Tenant tenant);
     Task<bool> DeleteAsync(Guid id);  
+    Task<bool> ExistsByNameAsync(string name);
 }

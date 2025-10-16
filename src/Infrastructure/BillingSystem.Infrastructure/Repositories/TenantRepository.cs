@@ -1,3 +1,4 @@
+using System.Globalization;
 using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using BillingSystem.Persistence.Data;
@@ -49,4 +50,7 @@ public class TenantRepository : ITenantRepository
 
         return false;
     }
+
+    public async Task<bool> ExistsByNameAsync(string name)
+        => await _dbContext.Tenants.AnyAsync(u => u.Name == name);
 }
