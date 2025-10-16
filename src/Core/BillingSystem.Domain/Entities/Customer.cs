@@ -11,7 +11,7 @@ public class Customer
     public string FullName => $"{FirstName}  + {LastName}"; // Get full name *Not Mapped (Ignore) 
     public string Email { get; set; } = null!;
     public string? PhoneNumber { get; set; }
-    public DateTime? DateOfBirth { get; set; }
+    public DateOnly? DateOfBirth { get; set; }
     public string Address { get; set; } = null!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

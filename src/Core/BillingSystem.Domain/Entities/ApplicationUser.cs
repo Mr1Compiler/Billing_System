@@ -10,7 +10,7 @@ public class ApplicationUser : IdentityUser
     public string FullName => $"{FirstName} + {LastName}"; // Ignore [NotMapped]
     
     public string Address { get; set; } = null!;
-    public DateTime? DateOfBirth { get; set; }
+    public DateOnly? DateOfBirth { get; set; }
     public AdminStatus AdminStatus { get; set; } = AdminStatus.Active;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

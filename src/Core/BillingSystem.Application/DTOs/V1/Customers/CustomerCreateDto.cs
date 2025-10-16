@@ -7,6 +7,6 @@ public class CustomerCreateDto
     public string LastName { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string? PhoneNumber { get; set; }
-    public DateTime? DateOfBirth { get; set; }
+    public DateOnly? DateOfBirth { get; set; }
     public string Address { get; set; } = null!;
 }

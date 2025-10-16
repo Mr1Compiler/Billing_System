@@ -72,7 +72,6 @@ public class AdminsController : ControllerBase
         {
             return BadRequest(new ApiResponse<AdminDto>
             {
-                StatusCode = StatusCodes.Status400BadRequest,
                 Success = false,
                 Message = "Something wrong happened make sure the data is correct"
             });
@@ -83,7 +82,6 @@ public class AdminsController : ControllerBase
         {
             return BadRequest(new ApiResponse<AdminDto>
             {
-                StatusCode = StatusCodes.Status400BadRequest,
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(newAdmin.ToResult()),
             });
