@@ -74,6 +74,7 @@ public class TenantsController : ControllerBase
         {
             return BadRequest(new ApiResponse<TenantDto>
             {
+                StatusCode = StatusCodes.Status404NotFound,
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(newTenant.ToResult()),
             });

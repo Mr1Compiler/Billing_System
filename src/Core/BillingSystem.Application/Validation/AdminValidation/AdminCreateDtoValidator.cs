@@ -10,6 +10,10 @@ public class AdminCreateDtoValidator : AbstractValidator<AdminCreateDto>
         RuleFor(u => u.UserName)
             .NotEmpty().WithMessage("Username is required");
 
+        RuleFor(u => u.TenantId)
+            .NotEmpty().WithMessage("Tenant id is required")
+            .NotNull().WithMessage("cannot be null");
+
         RuleFor(u => u.Password)
             .NotEmpty().WithMessage("Password is required")
             .MinimumLength(8).WithMessage("Password can not be less than 8 ");

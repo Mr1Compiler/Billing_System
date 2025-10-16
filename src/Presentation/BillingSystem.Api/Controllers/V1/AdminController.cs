@@ -68,12 +68,22 @@ public class AdminsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<AdminDto>> CreateNewAdmin(AdminCreateDto dto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(new ApiResponse<AdminDto>
+            {
+                StatusCode = StatusCodes.Status400BadRequest,
+                Success = false,
+                Message = "Something wrong happened make sure the data is correct"
+            });
+        }
         var newAdmin = await _adminService.CreateAdminAsync(dto);
 
         if (newAdmin.IsFailed)
         {
             return BadRequest(new ApiResponse<AdminDto>
             {
+                StatusCode = StatusCodes.Status400BadRequest,
                 Success = false,
                 Message = ErrorMessage.GetErrorMessage(newAdmin.ToResult()),
             });

@@ -3,7 +3,9 @@ using BillingSystem.Api.Extensions;
 using BillingSystem.Application.Validation.CustomerValidation;
 using BillingSystem.Persistence.Data;
 using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +14,14 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();   // needed for Swagger
-builder.Services.AddSwaggerGen();             // adds Swagger generator
+builder.Services.AddSwaggerGen();
+
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+
 
 // Db context
 builder.Services.AddDbContext<ApplicationDbContext>(option => 
@@ -34,7 +43,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();            // generate JSON
-    app.UseSwaggerUI();          // Swagger UI page
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseRouting();
