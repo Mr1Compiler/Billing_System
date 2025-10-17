@@ -20,6 +20,12 @@ public static class ServiceCollectionExtensions
           service.AddScoped<IAdminService, AdminService>();
           return service;
      }
+     
+     public static IServiceCollection AddSuperAdminService(this IServiceCollection service)
+     {
+          service.AddScoped<ISuperAdminService, SuperAdminService>();
+          return service;
+     }
 
      public static IServiceCollection AddSubscriptionPlanService(this IServiceCollection service)
      {

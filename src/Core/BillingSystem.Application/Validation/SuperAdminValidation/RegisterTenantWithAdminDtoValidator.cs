@@ -1,18 +1,15 @@
-using System.Runtime.InteropServices.JavaScript;
-using BillingSystem.Application.DTOs.V1.Admins;
+using BillingSystem.Application.DTOs.V1.SuperAdmin;
 using FluentValidation;
 
-namespace BillingSystem.Application.Validation.AdminValidation;
+namespace BillingSystem.Application.Validation.SuperAdminValidation;
 
-public class AdminCreateDtoValidator : AbstractValidator<AdminCreateDto>
+public class RegisterTenantWithAdminDtoValidator : AbstractValidator<RegisterTenantWithSuperAdminDto>
 {
-    public AdminCreateDtoValidator()
+    public RegisterTenantWithAdminDtoValidator()
     {
-        RuleFor(u => u.UserName)
-            .NotEmpty().WithMessage("Username is required");
-
-        RuleFor(u => u.TenantId)
-            .NotEmpty().WithMessage("Tenant id is required");
+        RuleFor(x => x.UserName)
+            .MaximumLength(100)
+            .NotEmpty().WithMessage("UserName is required");
 
         RuleFor(u => u.Password)
             .NotEmpty().WithMessage("Password is required")
@@ -32,10 +29,22 @@ public class AdminCreateDtoValidator : AbstractValidator<AdminCreateDto>
 
         RuleFor(u => u.Address)
             .NotEmpty().WithMessage("Address is required");
-
+        
         RuleFor(u => u.DateOfBirth)
             .NotEmpty().WithMessage("Date of Birth is required.")
             .When(u => u.DateOfBirth.HasValue);
+        
+        RuleFor(u => u.TenantName)
+            .NotEmpty().WithMessage("Name is required")
+            .MaximumLength(255).WithMessage("Name cannot exceed 255 characters");
+
+        RuleFor(u => u.TenantAddress)
+            .NotEmpty().WithMessage("Address is required")
+            .MaximumLength(255).WithMessage("Address cannot exceed 255 characters");
+
+        RuleFor(x => x.TenantDomain)
+            .MaximumLength(255)
+            .When(d => !string.IsNullOrEmpty(d.TenantDomain));
     }
 }
  

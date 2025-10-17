@@ -38,6 +38,7 @@ builder.Services.AddCustomerService()
     .AddAdminService()
     .AddSubscriptionPlanService()
     .AddCustomerSubscriptionService()
+    .AddSuperAdminService()
     .AddTenantService();
 
 var app = builder.Build();
