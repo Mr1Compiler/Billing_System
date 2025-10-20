@@ -50,11 +50,40 @@ public class AuthService : IAuthService
     {
         var user = await _userManager.FindByNameAsync(username);
 
-        if (user == null) return null;
+        if (user == null)
+            return null;
 
         var isValid = await _userManager.CheckPasswordAsync(user, password);
-        if (!isValid) return null;
+        
+        if (!isValid)
+            return null;
 
         return await GenerateJwtTokenAsync(user);
+    }
+
+    public ClaimsPrincipal? ValidateToken(string token)
+    {
+        // handler
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var validateParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!))
+        };
+
+        try
+        {
+            // Trying to return the user + claims = claimsPrincipal
+            var principal = tokenHandler.ValidateToken(token, validateParameters, out var validatedToken);
+            return principal;
+        }
+        catch (Exception e)
+        {
+            // return null if not validate 
+            return null;
+        }
     }
 }
