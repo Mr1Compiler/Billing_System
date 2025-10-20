@@ -37,7 +37,7 @@ public class AuthService : IAuthService
     
         var token = new JwtSecurityToken(
             issuer: _config["Jwt:Issuer"],
-            audience: _config["Jwt:audience"],
+            audience: _config["Jwt:Audience"],
             claims: claims,
             expires:DateTime.UtcNow.AddMinutes(10),
             signingCredentials: creds
