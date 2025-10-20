@@ -52,6 +52,5 @@ public class SuperAdminService : ISuperAdminService
         var tenantWithAdminDto = _mapper.Map<TenantWithAdminDto>(tenantWithAdminData);
 
         return Result.Ok();
-        // var adminCreated = await 
     }
 }

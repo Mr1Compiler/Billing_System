@@ -41,8 +41,8 @@ public class RegisterTenantWithAdminMapping : Profile
         CreateMap<(ApplicationUser admin, Tenant tenant), TenantWithAdminDto>()
             .ConstructUsing(src => new TenantWithAdminDto(
                 Guid.Parse(src.admin.Id),       // AdminId
-                src.admin.UserName,             // UserName
-                src.admin.Email,                // Email
+                src.admin.UserName!,             // UserName
+                src.admin.Email!,                // Email
                 src.admin.FirstName,            // FirstName
                 src.admin.LastName,             // LastName
                 src.admin.Address,              // Address
