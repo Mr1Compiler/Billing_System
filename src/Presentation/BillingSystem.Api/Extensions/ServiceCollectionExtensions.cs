@@ -47,4 +47,10 @@ public static class ServiceCollectionExtensions
           service.AddScoped<ITenantService, TenantService>();
           return service;
      }
+
+     public static IServiceCollection AddAuthService(this IServiceCollection service)
+     {
+          service.AddScoped<IAuthService, AuthService>();
+          return service;
+     } 
 }
