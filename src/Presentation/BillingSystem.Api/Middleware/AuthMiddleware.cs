@@ -5,15 +5,13 @@ namespace BillingSystem.Api.Middleware;
 public class AuthMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly IAuthService _authService;
 
-    public AuthMiddleware(RequestDelegate next, IAuthService authService)
+    public AuthMiddleware(RequestDelegate next)
     {
         _next = next;
-        _authService = authService;
     }
 
-    public async Task InokeAsync(HttpContext context)
+    public async Task InvokeAsync(HttpContext context, IAuthService authService)
     {
         // extract the jwt token 
         var token = context.Request.Headers["Authorization"]
@@ -21,7 +19,7 @@ public class AuthMiddleware
 
         if (!string.IsNullOrEmpty(token))
         {
-            var principal = _authService.ValidateToken(token);
+            var principal = authService.ValidateToken(token);
 
             if (principal != null)
                 context.User = principal; // attach user to HttpContext

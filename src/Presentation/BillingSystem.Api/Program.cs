@@ -39,9 +39,9 @@ builder.Services.AddCustomerService()
     .AddAdminService()
     .AddSubscriptionPlanService()
     .AddCustomerSubscriptionService()
+    .AddAuthService()
     .AddSuperAdminService()
-    .AddTenantService()
-    .AddAuthService();
+    .AddTenantService();
 
 var app = builder.Build();
 
@@ -71,6 +71,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
+app.UseAuthMiddleware();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
