@@ -5,6 +5,7 @@ using System.Text;
 using BillingSystem.Application.Interfaces;
 using BillingSystem.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace BillingSystem.Application.Services;
@@ -32,12 +33,15 @@ public class AuthService : IAuthService
         
         claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
     
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
+        var keyStr = _config["Auth:Key"] 
+                     ?? throw new InvalidOperationException("Missing Auth:Key in config");
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyStr));
+        
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
     
         var token = new JwtSecurityToken(
-            issuer: _config["Jwt:Issuer"],
-            audience: _config["Jwt:Audience"],
+            issuer: _config["Auth:Issuer"],
+            audience: _config["Auth:Audience"],
             claims: claims,
             expires:DateTime.UtcNow.AddMinutes(10),
             signingCredentials: creds
@@ -48,7 +52,8 @@ public class AuthService : IAuthService
 
     public async Task<string> ValidateUserAsync(string username, string password)
     {
-        var user = await _userManager.FindByNameAsync(username);
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == username);
+        // var user = await _userManager.FindByNameAsync(username);
 
         if (user == null)
             return null;
@@ -58,7 +63,9 @@ public class AuthService : IAuthService
         if (!isValid)
             return null;
 
-        return await GenerateJwtTokenAsync(user);
+        var token = await GenerateJwtTokenAsync(user);
+
+        return token;
     }
 
     public ClaimsPrincipal? ValidateToken(string token)
@@ -71,7 +78,7 @@ public class AuthService : IAuthService
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Auth:Key"]!))
         };
 
         try

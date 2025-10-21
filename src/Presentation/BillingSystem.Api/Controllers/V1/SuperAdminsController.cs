@@ -2,6 +2,7 @@ using BillingSystem.Api.Common;
 using BillingSystem.Application.DTOs.V1.Admins;
 using BillingSystem.Application.DTOs.V1.SuperAdmin;
 using BillingSystem.Application.Interfaces;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BillingSystem.Api.Controllers.V1;
@@ -60,11 +61,9 @@ public class SuperAdminsController : ControllerBase
 
         if (newSuperAdmin.IsFailed)
         {
-            return BadRequest(new ApiResponse<TenantWithAdminDto>
-            {
-                Success = false,
-                Message = ErrorMessage.GetErrorMessage(newSuperAdmin.ToResult()),
-            });
+            var errors = newSuperAdmin.Errors.Select(u => u.Message);
+
+            return BadRequest(errors);
         }
 
         return Ok(new ApiResponse<TenantWithAdminDto>

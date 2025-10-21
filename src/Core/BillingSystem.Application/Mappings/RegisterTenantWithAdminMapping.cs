@@ -14,8 +14,6 @@ public class RegisterTenantWithAdminMapping : Profile
                 opt => opt.MapFrom(src => src.dto.UserName))
             .ForMember(dest => dest.Email,
                 opt => opt.MapFrom(src => src.dto.Email))
-            .ForMember(dest => dest.PasswordHash,
-                opt => opt.MapFrom(src => src.dto.Password))
             .ForMember(dest => dest.TenantId,
                 opt => opt.MapFrom(src => src.tenantId))
             .ForMember(dest => dest.FirstName,

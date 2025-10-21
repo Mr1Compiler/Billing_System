@@ -5,6 +5,7 @@ using BillingSystem.Domain.Entities;
 using BillingSystem.Domain.Interfaces;
 using FluentResults;
 using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BillingSystem.Application.Services;
@@ -14,13 +15,15 @@ public class SuperAdminService : ISuperAdminService
     private readonly ITenantRepository _tenantRepository;
     private readonly IAdminRepository _adminRepository;
     private readonly IServiceProvider _serviceProvider;
+    private readonly UserManager<ApplicationUser> _userManager;
     private readonly IMapper _mapper;
     
-    public SuperAdminService(ITenantRepository tenantRepository, IAdminRepository adminRepository, IServiceProvider serviceProvider, IMapper mapper)
+    public SuperAdminService(ITenantRepository tenantRepository, IAdminRepository adminRepository, IServiceProvider serviceProvider, IMapper mapper, UserManager<ApplicationUser> userManager)
     {
         _tenantRepository = tenantRepository;
         _adminRepository = adminRepository;
         _serviceProvider = serviceProvider;
+        _userManager = userManager;
         _mapper = mapper;
     }
 
@@ -46,8 +49,21 @@ public class SuperAdminService : ISuperAdminService
 
         var superAdminData = (registerDto, tenant.Id);
         var superAdmin = _mapper.Map<ApplicationUser>(superAdminData);
-        await _adminRepository.AddAsync(superAdmin);
 
+        // creating the user in the database by passing the password instead of sorting it without hashing
+        var user = await _userManager.CreateAsync(superAdmin, superAdminData.registerDto.Password);
+
+        if (!user.Succeeded)
+        {
+            var errors = user.Errors
+                .Select(e => e.Description); 
+            return Result.Fail(errors);
+        }
+        else 
+        {
+            await _userManager.AddToRoleAsync(superAdmin, "SuperAdmin");
+        } 
+        
         var tenantWithAdminData = (superAdmin, tenant);
         var tenantWithAdminDto = _mapper.Map<TenantWithAdminDto>(tenantWithAdminData);
 
