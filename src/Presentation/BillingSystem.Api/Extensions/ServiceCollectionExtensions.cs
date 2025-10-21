@@ -2,6 +2,7 @@ using BillingSystem.Application.Interfaces;
 using BillingSystem.Application.Services;
 using BillingSystem.Domain.Interfaces;
 using BillingSystem.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace BillingSystem.Api.Extensions;
 
