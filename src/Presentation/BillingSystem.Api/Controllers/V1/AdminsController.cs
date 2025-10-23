@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BillingSystem.Api.Controllers.V1;
 
-[Authorize(Roles = "SuperAdmin,Admin")]
+[Authorize(Roles = "SuperAdmin")]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class AdminsController : ControllerBase

@@ -17,29 +17,29 @@ public class TenantsController : ControllerBase
         _tenantService = tenantService;
     }
 
-    [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<IEnumerable<TenantListDto>>>> GetAllTenants()
-    {
-        var tenants = await _tenantService.GetAllTenantsAsync();
-
-        if (tenants.IsFailed)
-        {
-            return NotFound(new ApiResponse<IEnumerable<TenantListDto>>
-            {
-                Success = false,
-                Message = ErrorMessage.GetErrorMessage(tenants.ToResult()),
-            });
-        }
-
-        return Ok(new ApiResponse<IEnumerable<TenantListDto>>
-        {
-            Success = true,
-            Message = "ok",
-            Data = tenants.Value
-        });
-    }
+    // [HttpGet]
+    // [ProducesResponseType(StatusCodes.Status200OK)]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public async Task<ActionResult<ApiResponse<IEnumerable<TenantListDto>>>> GetAllTenants()
+    // {
+    //     var tenants = await _tenantService.GetAllTenantsAsync();
+    //
+    //     if (tenants.IsFailed)
+    //     {
+    //         return NotFound(new ApiResponse<IEnumerable<TenantListDto>>
+    //         {
+    //             Success = false,
+    //             Message = ErrorMessage.GetErrorMessage(tenants.ToResult()),
+    //         });
+    //     }
+    //
+    //     return Ok(new ApiResponse<IEnumerable<TenantListDto>>
+    //     {
+    //         Success = true,
+    //         Message = "ok",
+    //         Data = tenants.Value
+    //     });
+    // }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
