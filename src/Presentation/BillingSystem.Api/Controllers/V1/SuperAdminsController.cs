@@ -3,10 +3,12 @@ using BillingSystem.Application.DTOs.V1.Admins;
 using BillingSystem.Application.DTOs.V1.SuperAdmin;
 using BillingSystem.Application.Interfaces;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BillingSystem.Api.Controllers.V1;
 
+[Authorize(Roles = "SuperAdmin")]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class SuperAdminsController : ControllerBase

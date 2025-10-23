@@ -1,10 +1,12 @@
 using BillingSystem.Api.Common;
 using BillingSystem.Application.DTOs.V1.Customers;
 using BillingSystem.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BillingSystem.Api.Controllers.V1;
 
+[Authorize(Roles = "SuperAdmin,Admin")]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class CustomersController : ControllerBase

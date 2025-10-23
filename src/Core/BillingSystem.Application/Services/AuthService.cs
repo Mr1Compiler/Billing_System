@@ -78,7 +78,10 @@ public class AuthService : IAuthService
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Auth:Key"]!))
+            ValidIssuer = _config["Auth:Issuer"],
+            ValidAudience = _config["Auth:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_config["Auth:Key"]!))
         };
 
         try
